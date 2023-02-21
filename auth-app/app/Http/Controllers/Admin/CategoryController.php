@@ -41,4 +41,45 @@ class CategoryController extends Controller
         return redirect('categories')
             ->with('success', 'Category created successfully!');
     }
+
+    //****************************** */
+    public function create(): View|RedirectResponse
+    {
+        $categories = Category::where('id', null)->get();
+        return view('admin/categories/create', [
+            'categories' => $categories
+        ]);
+    }
+ 
+    public function edit(int $id, Request $request)
+    {
+        $category = Category::find($id);
+        if ($category === null) {
+            abort(404);
+        }
+ 
+        if ($request->isMethod('post')) {
+            $request->validate(
+                ['name' => 'required|min:3|max:20']
+            );
+ 
+            $category->fill($request->all());
+            $category->save();
+ 
+            return redirect('admin/categories')->with('success', 'Category updated successfully!');
+        }
+
+        return view('admin/categories/edit', compact('category'));
+    }
+ 
+    public function delete(int $id)
+    {
+        $category = Category::find($id);
+        if ($category === null) {
+            abort(404);
+        }
+        $category->delete();
+        return redirect('admin/categories')->with('success', 'Category removed successfully!');
+    }
 }
+

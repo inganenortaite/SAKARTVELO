@@ -22,8 +22,8 @@ Route::resource('admin/recipes', RecipeController::class);
 Route::resource('admin/ingredients', IngredientController::class);
 
 Route::resource('admin/categories', CategoryController::class);
-Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
+Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('admin.categories.delete');
 
 
 

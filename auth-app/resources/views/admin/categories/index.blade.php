@@ -1,5 +1,8 @@
 @extends('components.layout')
 
+<!-- **************************** -->
+@section('title', 'Categories')
+
 @section('content')
     <h1>Categories</h1>
 
@@ -9,7 +12,7 @@
     
 <div class="row">
     <div class="col">
-        <a href="{{ url('categories/create') }}" class="btn btn-primary">Create</a>
+        <a href="{{ url('admin/categories/create') }}" class="btn btn-primary">Create</a>
     </div>
 </div>
 
@@ -25,16 +28,16 @@
     <tr>
         <th scope="row">{{ $category->id }}</th>
         <td>
-            <a href="{{ url('categories', ['id' => $category->id]) }}">{{ $category->name }}</a>
+            <a href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->name }}</a>
         </td>
         <td>
-            <a href="{{ url('categories', ['id' => $category->id]) }}">{{ $category->is_active }}</a>
+            <a href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->is_active }}</a>
         </td>
         <td>
-            <a href="{{ route('category.edit', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>
+            <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>
         </td>
         <td>
-            <form action="{{ route('category.delete', ['id' => $category->id]) }}" method="post">
+            <form action="{{ route('admin.categories.delete', ['id' => $category->id]) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
