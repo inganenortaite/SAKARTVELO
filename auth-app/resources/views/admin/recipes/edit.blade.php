@@ -49,7 +49,7 @@
 
     <div class="form-group">
         <label class="form-label">Description:</label>
-        <input type="text" name="description" value="{{ old('description', $recipe->description) }}" class="form-control @error('description') is-invalid @enderror" placeholder="Recipe description">
+        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="4" cols="50">{{ old('description', $recipe->description) }}</textarea>
         @error('description')
         <div class="invalid-feedback">{{ $message }}</div><br>
         @enderror
