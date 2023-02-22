@@ -20,6 +20,19 @@
                     <li class="nav-item">
                         <a href="{{ url('admin/ingredients/index') }}" class="nav-link" aria-current="page" href="#">Ingredients</a>
                     </li>
+                    <li class="nav-item">    
+                    @auth
+                    <!-- <a href="{{ route('logout') }}" class="nav-link" aria-current="page">Logout</a>     -->
+                    <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                    @endauth
+                    @guest
+                    <a href="{{ route('login') }}" class="nav-link" aria-current="page">Login</a>    
+                    <a href="{{ route('register') }}" class="nav-link" aria-current="page">Register</a>    
+                    @endguest
+                    </li>
                 </ul>
             </div>
         </div>
