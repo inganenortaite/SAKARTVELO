@@ -1,26 +1,24 @@
 @extends('components.layout')
- 
-@section('title', 'Create category')
- 
+
+
 @section('content')
- 
-<h1>Create New Category</h1>
- 
-<form action="{{ url('admin/categories/create') }}" method="post" class="row g-3">
- 
+<h3>Create New Ingredient</h3>
+
+<form action="{{ url('admin/ingredients/create') }}" method="post" class="row g-3">
+
     @if ($errors->any())
-     <div class="alert alert-danger">
-         <ul>
-             @foreach ($errors->all() as $error)
-                 <li>{{ $error }}</li>
-             @endforeach
-         </ul>
-     </div>
- @endif
- 
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     @csrf
     <div class="form-group">
-        <label class="form-label">Category name:</label>
+        <label class="form-label">Ingredient Name:</label>
         <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Category name">
         @error('name')
         <div class="invalid-feedback">{{ $message }}</div><br>
@@ -35,5 +33,4 @@
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </form>
- 
 @endsection

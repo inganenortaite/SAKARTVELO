@@ -18,9 +18,15 @@ class IngredientController extends Controller
             'ingredients' => $ingredients
         ]);
     }
-    public function show(Ingredient $ingredient): View
+    public function show(int $id): View
     {
-        return view('admin/ingredients/show', compact('ingredient'));
+        $ingredient = Ingredient::find($id);
+            if ($ingredient === null) {
+            abort(404);
+        }
+        return view('admin/ingredients/show', [
+            'ingredient' => $ingredient
+        ]);
     }
 
     public function store(Request $request): RedirectResponse
@@ -29,12 +35,50 @@ class IngredientController extends Controller
         $request->validate(
             [
                 'name' => 'required|max:20',
-                'surname' => 'required|max:20',
-                'country' => 'required|max:20',
-                'birthday' => 'required|date',
             ]
         );
 
         Ingredient::create($request->all());
+            return redirect('admin/ingredients/index')
+            ->with('success', 'Ingredient created successfully!');
+    }
+
+    public function create(): View|RedirectResponse
+    {
+        $ingredients = Ingredient::where('id', null)->get();
+        return view('admin/ingredients/create', [
+            'ingredients' => $ingredients
+        ]);
+    }
+    
+    public function edit(int $id, Request $request)
+    {
+        $ingredient = Ingredient::find($id);
+        if ($ingredient === null) {
+            abort(404);
+        }
+ 
+        if ($ingredient->isMethod('post')) {
+            $ingredient->validate(
+                ['name' => 'required|min:3|max:20']
+            );
+ 
+            $ingredient->fill($request->all());
+            $ingredient->save();
+ 
+            return redirect('admin/ingredients/index')->with('success', 'Ingredient updated successfully!');
+        }
+
+        return view('admin/ingredients/edit', compact('ingredient'));
+    }
+ 
+    public function delete(int $id)
+    {
+        $ingredient = Ingredient::find($id);
+        if ($ingredient === null) {
+            abort(404);
+        }
+        $ingredient->delete();
+        return redirect('admin/ingredients/index')->with('success', 'Ingredient removed successfully!');
     }
 }

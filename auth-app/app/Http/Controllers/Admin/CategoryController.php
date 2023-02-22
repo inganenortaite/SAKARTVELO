@@ -38,11 +38,10 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-        return redirect('categories')
+        return redirect('categories/index')
             ->with('success', 'Category created successfully!');
     }
 
-    //****************************** */
     public function create(): View|RedirectResponse
     {
         $categories = Category::where('id', null)->get();
@@ -66,7 +65,7 @@ class CategoryController extends Controller
             $category->fill($request->all());
             $category->save();
  
-            return redirect('admin/categories')->with('success', 'Category updated successfully!');
+            return redirect('admin/categories/index')->with('success', 'Category updated successfully!');
         }
 
         return view('admin/categories/edit', compact('category'));
@@ -79,7 +78,7 @@ class CategoryController extends Controller
             abort(404);
         }
         $category->delete();
-        return redirect('admin/categories')->with('success', 'Category removed successfully!');
+        return redirect('admin/categories/index')->with('success', 'Category removed successfully!');
     }
 }
 

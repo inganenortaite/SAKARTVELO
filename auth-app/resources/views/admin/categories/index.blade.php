@@ -1,6 +1,5 @@
 @extends('components.layout')
 
-<!-- **************************** -->
 @section('title', 'Categories')
 
 @section('content')
@@ -19,7 +18,7 @@
 <table class="table">
     <tr>
         <th scope="col" width="100">ID</th>
-        <th scope="col">Category name</th>
+        <th scope="col">Category Name</th>
         <th scope="col">Is Active</th>
         <th scope="col" width="100">Edit</th>
         <th scope="col" width="100">Delete</th>
@@ -28,10 +27,10 @@
     <tr>
         <th scope="row">{{ $category->id }}</th>
         <td>
-            <a href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->name }}</a>
+            <a href="{{ url('admin/categories/index', ['id' => $category->id]) }}">{{ $category->name }}</a>
         </td>
         <td>
-            <a href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->is_active }}</a>
+            <a href="{{ url('admin/categories/index', ['id' => $category->id]) }}">{{ $category->is_active }}</a>
         </td>
         <td>
             <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>

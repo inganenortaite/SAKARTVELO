@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a href="{{ url('categories') }}" class="nav-link" aria-current="page" href="#">Categories</a>
+                        <a href="{{ url('admin/recepies/index') }}" class="nav-link" aria-current="page" href="#">Visi Receptai</a>
                     </li>
                 </ul>
             </div>

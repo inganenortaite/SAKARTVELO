@@ -15,6 +15,11 @@ class Ingredient extends Model
         'name',
         'is_active'
     ];
+
+    protected $attributes = [
+        'is_active'=>false
+    ];
+    
     public function recipes(): HasMany
     {
         return $this->hasMany(Recipe::class);
