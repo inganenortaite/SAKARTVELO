@@ -16,20 +16,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::resource('admin/recipes/index', RecipeController::class);
-
-Route::get('admin/ingredients/index', [IngredientController::class, 'index']);
-Route::get('admin/ingredients/create', [IngredientController::class, 'create']);
-Route::post('admin/ingredients/create', [IngredientController::class, 'store']);
-Route::any('admin/ingredients/edit/{id}', [IngredientController::class, 'edit'])->name('admin.ingredients.edit');
-Route::delete('admin/ingredients/delete/{id}', [IngredientController::class, 'delete'])->name('admin.ingredients.delete');
+Route::get('admin/recipes/index', [RecipeController::class, 'index']);
+Route::get('admin/recipes/create', [RecipeController::class, 'create']);
+Route::post('admin/recipes/create', [RecipeController::class, 'store']);
+Route::any('admin/recipes/edit/{id}', [RecipeController::class, 'edit'])->name('admin.recipe.edit');
+Route::delete('admin/recipes/delete/{id}', [RecipeController::class, 'delete'])->name('admin.recipe.delete');
 
 Route::get('admin/categories/index', [CategoryController::class, 'index']);
 Route::get('admin/categories/create', [CategoryController::class, 'create']);
 Route::post('admin/categories/create', [CategoryController::class, 'store']);
 Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
 Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('admin.categories.delete');
+
+Route::get('admin/ingredients/index', [IngredientController::class, 'index']);
+Route::get('admin/ingredients/create', [IngredientController::class, 'create']);
+Route::post('admin/ingredients/create', [IngredientController::class, 'store']);
+Route::any('admin/ingredients/edit/{id}', [IngredientController::class, 'edit'])->name('admin.ingredients.edit');
+Route::delete('admin/ingredients/delete/{id}', [IngredientController::class, 'delete'])->name('admin.ingredients.delete');
 
 Route::get('/', function () {
     return view('welcome');

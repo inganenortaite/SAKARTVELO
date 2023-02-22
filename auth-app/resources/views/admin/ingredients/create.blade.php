@@ -19,7 +19,7 @@
     @csrf
     <div class="form-group">
         <label class="form-label">Ingredient Name:</label>
-        <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Category name">
+        <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Ingredient name">
         @error('name')
         <div class="invalid-feedback">{{ $message }}</div><br>
         @enderror

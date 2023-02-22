@@ -15,12 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        // for($i=0; $i<10; $i++) {
-        //     Category::create([
-        //         'name'=>fake()->firstName,
-        //         'is_active'=>fake()->boolean,
-        //     ]);
-        // }
         $categories = [
             [
                 'name' => 'Dumpling',

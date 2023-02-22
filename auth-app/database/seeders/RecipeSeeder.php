@@ -15,13 +15,6 @@ class RecipeSeeder extends Seeder
      */
     public function run()
     {
-        // for($i=0; $i<10; $i++) {
-        //     Recipe::create([
-        //         'name'=>fake()->name,
-        //         'description'=>fake()->name,
-        //         'is_active'=>fake()->boolean,
-        //     ]);
-        // }
         $recipes = [
             [
                 'name' => 'Khachapuri',

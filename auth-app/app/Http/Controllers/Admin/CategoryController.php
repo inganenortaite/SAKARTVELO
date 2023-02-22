@@ -38,7 +38,7 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-        return redirect('categories/index')
+        return redirect('admin/categories/index')
             ->with('success', 'Category created successfully!');
     }
 

@@ -12,7 +12,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a href="{{ url('admin/recepies/index') }}" class="nav-link" aria-current="page" href="#">Visi Receptai</a>
+                        <a href="{{ url('admin/recipes/index') }}" class="nav-link" aria-current="page" href="#">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/categories/index') }}" class="nav-link" aria-current="page" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin/ingredients/index') }}" class="nav-link" aria-current="page" href="#">Ingredients</a>
                     </li>
                 </ul>
             </div>

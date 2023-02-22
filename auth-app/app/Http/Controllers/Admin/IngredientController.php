@@ -58,12 +58,13 @@ class IngredientController extends Controller
             abort(404);
         }
  
-        if ($ingredient->isMethod('post')) {
-            $ingredient->validate(
+        if ($request->isMethod('post')) {
+            $request->validate(
                 ['name' => 'required|min:3|max:20']
             );
- 
+           
             $ingredient->fill($request->all());
+            $ingredient->is_active=$request->post('is_active', false);
             $ingredient->save();
  
             return redirect('admin/ingredients/index')->with('success', 'Ingredient updated successfully!');
