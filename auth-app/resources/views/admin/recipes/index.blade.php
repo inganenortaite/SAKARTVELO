@@ -37,14 +37,16 @@
         <div class="col"> <a href="{{ url('admin/recipes/create') }}" class="btn btn-primary">Create</a> </div>
     </div>
  
-    <table class="table">
+    <table class="table" >
         <tr>
-            <th scope="col" width="100">ID</th>
+            <th scope="col">ID</th>
+            
             <th scope="col">Name</th>
             <th>Image</th>
             <th scope="col">Category</th>
             <th scope="col">Ingredients</th>
             <th scope="col">Description</th>
+            <th scope="col" width="100">Active</th>
             <th scope="col" width="100">Edit</th>
             <th scope="col" width="100">Delete</th>
         </tr>
@@ -56,7 +58,7 @@
             </td>
             <td>
             @if ($recipe->image)
-                <img style="max-height: 100px;" src="{{ asset($recipe->image) }}">
+                <img style="max-height: 150px;" src="{{ asset($recipe->image) }}">
             @else
                 No image
             @endif
@@ -74,6 +76,7 @@
             @endif
             </td>
             <td>{{ $recipe->description }}</td>
+            <td>{{ $recipe->is_active }}</td>
             <td>
                 <a href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-primary">Edit</a>
             </td>

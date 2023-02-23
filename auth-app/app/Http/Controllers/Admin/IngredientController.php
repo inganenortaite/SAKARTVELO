@@ -12,7 +12,7 @@ class IngredientController extends Controller
 {
     public function index(): View
     {
-        $ingredients = Ingredient::all();
+        $ingredients = Ingredient::paginate(10);
 
         return view('admin/ingredients/index', [
             'ingredients' => $ingredients

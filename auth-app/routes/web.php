@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Front\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [FrontController::class, 'index']);
+
 Route::get('admin/recipes/index', [RecipeController::class, 'index']);
 Route::get('admin/recipes/create', [RecipeController::class, 'create']);
 Route::post('admin/recipes/create', [RecipeController::class, 'store']);
@@ -33,10 +36,6 @@ Route::get('admin/ingredients/create', [IngredientController::class, 'create']);
 Route::post('admin/ingredients/create', [IngredientController::class, 'store']);
 Route::any('admin/ingredients/edit/{id}', [IngredientController::class, 'edit'])->name('admin.ingredients.edit');
 Route::delete('admin/ingredients/delete/{id}', [IngredientController::class, 'delete'])->name('admin.ingredients.delete');
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -41,7 +41,7 @@ class RecipeController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'description' => 'required|min:5|max:255',
+                'description' => 'required|min:5|max:755',
                 'image' => [
                     'required',
                     File::types(['jpg', 'wav'])
@@ -60,8 +60,6 @@ class RecipeController extends Controller
             $recipe->save();
         }
         
-        // $categories = Category::find($request->post('category_id'));
-        // $recipe->categories()->attach($categories);
         $recipe->ingredients()->attach($request->post('ingredient_id'));
  
         return redirect('admin/recipes/index')
@@ -95,6 +93,8 @@ class RecipeController extends Controller
             $recipe->fill($request->all());
             $recipe->ingredients()->detach();
             $recipe->ingredients()->attach($request->post('ingredient_id'));
+            $recipe->is_active = $request->post('is_active', false);
+
             $image = $request->file('image');
             if ($image){
                 $path = $image->store('recipe_images'); 

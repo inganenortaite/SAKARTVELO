@@ -21,7 +21,7 @@
     <tr>
         <th scope="col" width="100">ID</th>
         <th scope="col">Category Name</th>
-        <th scope="col">Is Active</th>
+        <th scope="col">Active</th>
         <th scope="col" width="100">Edit</th>
         <th scope="col" width="100">Delete</th>
     </tr>
@@ -47,4 +47,9 @@
     </tr>
 @endforeach
 </table>
+<div class="row">
+    <div class="col">
+        {{ $categories->links()}}
+    </div>
+</div>
 @endsection
