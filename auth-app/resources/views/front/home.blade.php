@@ -1,6 +1,4 @@
 @extends('components.min_layout')
-
-@section('title', 'All Recipes')
  
 @section('content')
 <div class="row">
@@ -24,10 +22,7 @@
         </div>
     </div>
     @endforeach
-    <div class="row">
-        <div class="col">
-            {{ $recipes->links()}}
-        </div>
-    </div>
+ 
 </div>
+ 
 @endsection

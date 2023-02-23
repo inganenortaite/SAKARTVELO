@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', [FrontController::class, 'home']);
+Route::get('recipes', [FrontController::class, 'index']);
+Route::get('recipe/{id}', [FrontController::class, 'show']);
+
 
 Route::get('admin/recipes/index', [RecipeController::class, 'index']);
 Route::get('admin/recipes/create', [RecipeController::class, 'create']);
