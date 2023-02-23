@@ -53,6 +53,7 @@
         @foreach($recipes as $recipe)
         <tr>
             <th scope="row">{{ $recipe->id }}</th>
+            
             <td class="list-group-flush">
                 <a href="{{ url('admin/recipes/index', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
             </td>
