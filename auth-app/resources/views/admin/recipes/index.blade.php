@@ -9,21 +9,9 @@
  
 <div class="row">
     <form action="{{ url('admin/recipes/index') }}" method="get"> 
- 
-    <div class="col-12">    
-        <label class="form-label">Recipe Name:</label>
-        <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Recipe name">
-    </div>
- 
-        <div class="col-12">        
-            <label class="form-label">Category:</label>        
-            <select name="category_id" class="form-control"> 
-            <option value="" disabled selected hidden>Choose Category</option>           
-            @foreach($categories as $category)
-            <option @if($category->id == $category_id) selected @endif
-            value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
-            </select>
+        <div class="col-12">    
+            <label class="form-label">Recipe Name:</label>
+            <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Recipe name">
         </div>
 
         <div class="col-12 mt-2">        
@@ -32,7 +20,6 @@
         </div>
     </form>
  
- 
     <div class="row">
         <div class="col"> <a href="{{ url('admin/recipes/create') }}" class="btn btn-primary">Create</a> </div>
     </div>
@@ -40,7 +27,6 @@
     <table class="table" >
         <tr>
             <th scope="col">ID</th>
-            
             <th scope="col">Name</th>
             <th>Image</th>
             <th scope="col">Category</th>
@@ -76,7 +62,8 @@
                 @endforeach
             @endif
             </td>
-            <td>{{ $recipe->description }}</td>
+                <td>{{ Str::limit($recipe->description, 350) }}    
+            </td>
             <td>{{ $recipe->is_active }}</td>
             <td>
                 <a href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-primary">Edit</a>
