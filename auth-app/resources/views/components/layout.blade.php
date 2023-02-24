@@ -12,14 +12,16 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a href="{{ url('admin/recipes/index') }}" class="nav-link" aria-current="page" href="#">Recipes</a>
+                        <a href="{{ url('admin/recipes/index') }}" class="nav-link" aria-current="page">Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('admin/categories/index') }}" class="nav-link" aria-current="page" href="#">Categories</a>
+                        <a href="{{ url('admin/categories/index') }}" class="nav-link" aria-current="page">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('admin/ingredients/index') }}" class="nav-link" aria-current="page" href="#">Ingredients</a>
+                        <a href="{{ url('admin/ingredients/index') }}" class="nav-link" aria-current="page">Ingredients</a>
                     </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="nav-item">    
                         @auth
                         <a href="{{ route('logout') }}" class="nav-link" aria-current="page">Logout</a>    
@@ -41,7 +43,7 @@
     <div class="container">
         @yield('content')
     </div>
-
+<br>
     <footer class="Container">
         &copy 2023 Made by IngaNE
     </footer>
