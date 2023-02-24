@@ -14,10 +14,12 @@
                     <li class="nav-item">
                         <a href="{{ url('recipes') }}" class="nav-link" aria-current="page" href="#">All Recipes</a>
                     </li>
+                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">    
-                        @auth
+                    @auth
                         <a href="{{ route('logout') }}" class="nav-link" aria-current="page">Logout</a>    
-                        @endauth
+                    @endauth
                     </li>
                     @guest
                     <li class="nav-item">

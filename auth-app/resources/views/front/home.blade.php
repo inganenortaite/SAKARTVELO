@@ -17,7 +17,7 @@
                         {{ $recipe->category->name }}
                     @endif
                 </h6>
-                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}">Link</a>  
+                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}">Make {{ $recipe->name }} Recipe</a>  
             </div>
         </div>
     </div>

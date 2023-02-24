@@ -13,7 +13,7 @@
             <label class="form-label">Recipe Name:</label>
             <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Recipe name">
         </div>
-
+        
         <div class="col-12 mt-2">        
             <button type="submit" class="btn btn-info">Filter</button>  
             <a href="{{ url('admin/recipes/index') }}" >clear</a></div>  
@@ -39,7 +39,6 @@
         @foreach($recipes as $recipe)
         <tr>
             <th scope="row">{{ $recipe->id }}</th>
-            
             <td class="list-group-flush">
                 <a href="{{ url('admin/recipes/index', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
             </td>
@@ -62,9 +61,10 @@
                 @endforeach
             @endif
             </td>
-                <td>{{ Str::limit($recipe->description, 350) }}    
+                <td>{{ Str::limit($recipe->description, 350) }}  
+                <a href="#">more</a>  
             </td>
-            <td>{{ $recipe->is_active }}</td>
+                <td>{{ $recipe->is_active }}</td>
             <td>
                 <a href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-primary">Edit</a>
             </td>

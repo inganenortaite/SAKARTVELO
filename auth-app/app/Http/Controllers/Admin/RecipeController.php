@@ -44,7 +44,7 @@ class RecipeController extends Controller
                 'description' => 'required|min:5|max:755',
                 'image' => [
                     'required',
-                    File::types(['jpg', 'wav'])
+                    File::types(['jpg', 'wav', 'png'])
                         ->min(10)
                         ->max(12*1024)
                 ],
