@@ -11,12 +11,12 @@
     <form action="{{ url('admin/recipes/index') }}" method="get"> 
         <div class="col-12">    
             <label class="form-label">Recipe Name:</label>
-            <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Recipe name">
+            <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Type Recipe Name">
         </div>
         
         <div class="col-12 mt-2">        
             <button type="submit" class="btn btn-info">Filter</button>  
-            <a href="{{ url('admin/recipes/index') }}" >clear</a></div>  
+            <a href="{{ url('admin/recipes/index') }}" class="btn btn-info">Clear</a>
         </div>
     </form>
  
@@ -40,7 +40,7 @@
         <tr>
             <th scope="row">{{ $recipe->id }}</th>
             <td class="list-group-flush">
-                <a href="{{ url('admin/recipes/index', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
+                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
             </td>
             <td>
             @if ($recipe->image)
@@ -62,7 +62,7 @@
             @endif
             </td>
                 <td>{{ Str::limit($recipe->description, 350) }}  
-                <a href="#">more</a>  
+                <a href="{{  url('recipe', ['id'=> $recipe->id])  }}" class="text-reset">read more</a>  
             </td>
                 <td>{{ $recipe->is_active }}</td>
             <td>

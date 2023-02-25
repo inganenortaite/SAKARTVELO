@@ -39,18 +39,14 @@
     </div>
     <br>
     
-    <footer class="py-3 my-4">
+<footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="{{ url('recipes') }}" class="nav-link px-2 text-muted">Recipes</a></li>
-        <li class="nav-item"><a href="{{ url('categories') }}" class="nav-link px-2 text-muted">Categories</a></li>
-        <li class="nav-item"><a href="{{ url('ingredients') }}" class="nav-link px-2 text-muted">Ingredients</a></li>
+        <li class="nav-item"><a href="{{ url('admin/recipes/index') }}" class="nav-link px-2 text-muted">Recipes</a></li>
+        <li class="nav-item"><a href="{{ url('admin/ingredients/index') }}" class="nav-link px-2 text-muted">Ingredients</a></li>
+        <li class="nav-item"><a href="{{ url('admin/categories/index') }}" class="nav-link px-2 text-muted">Categories</a></li>
     </ul>
     <p class="text-center text-muted">&copy; 2023 Made by IngaNE</p>
 </footer>
-
-    <!-- <footer class="PY-3 MY-4">
-        &copy 2023 Made by IngaNE
-    </footer> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
