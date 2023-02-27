@@ -32,7 +32,7 @@
             <a href="{{ url('admin/categories/index', ['id' => $category->id]) }}">{{ $category->name }}</a>
         </td>
         <td>
-            <a href="{{ url('admin/categories/index', ['id' => $category->id]) }}">{{ $category->is_active }}</a>
+            {{ $category->is_active }}
         </td>
         <td>
             <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>

@@ -24,14 +24,15 @@ class FrontController extends Controller
     public function index(Request $request): View 
     {
         $recipes = Recipe::where('is_active', '=', 1);
- 
-        if ($request->query('name')) {
-            $recipes->where('name', 'like', '%' . $request->query('name') . '%');
-        }
+
         if ($request->query('category_id')) {
             $recipes->where('category_id', '=', $request->query('category_id'));
         }
  
+        if ($request->query('name')) {
+            $recipes->where('name', 'like', '%' . $request->query('name') . '%');
+        }
+        
         $categories = Category::where('is_active', '=', 1)->get();
  
         return view('front/index', [

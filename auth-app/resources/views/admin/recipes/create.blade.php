@@ -4,7 +4,7 @@
  
 @section('content')
  
-<h1>Add New Recipe</h1>
+<h1>Create New Recipe</h1>
  
 @if ($errors->any())
 <div class="alert alert-danger">

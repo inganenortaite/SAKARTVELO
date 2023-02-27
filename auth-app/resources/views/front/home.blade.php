@@ -1,13 +1,16 @@
 @extends('components.min_layout')
  
 @section('content')
+
+<h1>The Newest Recipes</h1>
+
 <div class="row">
     @foreach($recipes as $recipe)
     <div class="col-3 mb-3">
         <div class="card">
             <div class="card-body">
                 @if ($recipe->image)
-                    <img class="card-img-top"  src="{{ asset($recipe->image) }}">
+                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img class="card-img-top" src="{{ asset($recipe->image) }}"></a>
                 @else
                     No image
                 @endif
@@ -22,7 +25,5 @@
         </div>
     </div>
     @endforeach
- 
 </div>
- 
 @endsection

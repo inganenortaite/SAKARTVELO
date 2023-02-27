@@ -3,29 +3,39 @@
 @extends('components.min_layout')
 
 @section('content')
+
+<h1>All Recipes</h1>
  
 <div>
     <div>
-        <form action="{{ url('recipes') }}" method="get"> 
-            <div class="col-12">    
-                <label class="form-label">Recipe Name:</label>
-                <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Recipe name">
-            </div>
+        <form action="{{ url('recipes') }}" method="get">
 
             <div class="col-12">        
-                <label class="form-label">Category:</label>        
+                <label class="form-label">Recipe's Category:</label>        
                 <select name="category_id" class="form-control"> 
                 <option value="" disabled selected hidden>Choose Category</option>           
                 @foreach($categories as $category)
                 <option @if($category->id == $category_id) selected @endif
                 value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
-                </select>
+                </select>  
             </div>
 
+            <div class="col-12">        
+                <label class="form-label">Recipe's Name:</label>        
+                <select name="name" class="form-control"> 
+                <option value="" disabled selected hidden>Choose Recipe</option>           
+                @foreach($recipes as $recipe)
+                <option @if($recipe->name == $name) selected 
+                @endif
+                value="{{ $recipe->name}}">{{ $recipe->name }}</option>
+                @endforeach
+                </select>
+            </div>  
+           
             <div class="col-12 mt-2">        
-                <button type="submit" class="btn btn-info">Filter</button>  
-                <a href="{{ url('recipes') }}" >clear</a></div>  
+                <button type="submit" class="btn btn-dark">Filter</button>  
+                <a href="{{ url('recipes') }}" class="btn btn-outline-dark">Clear All Filters</a></div>  
             </div>
         </form>
     </div>
@@ -35,7 +45,7 @@
             <div class="card">
                 <div class="card-body">
                     @if ($recipe->image)
-                        <img class="card-img-top"  src="{{ asset($recipe->image) }}">
+                        <a href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img class="card-img-top" src="{{ asset($recipe->image) }}"></a>
                     @else
                         No image
                     @endif

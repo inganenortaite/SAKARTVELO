@@ -9,21 +9,34 @@
  
 <div class="row">
     <form action="{{ url('admin/recipes/index') }}" method="get"> 
+
         <div class="col-12">    
-            <label class="form-label">Recipe Name:</label>
+            <label class="form-label">Recipe's Name</label>
             <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Type Recipe Name">
         </div>
-        
+
+        <div class="col-12">        
+                <label class="form-label">Recipe's Category:</label>        
+                <select name="category_id" class="form-control"> 
+                <option value="" disabled selected hidden>Choose Category</option>           
+                @foreach($categories as $category)
+                <option @if($category->id == $category_id) selected @endif
+                value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+                </select>
+        </div>
+
         <div class="col-12 mt-2">        
-            <button type="submit" class="btn btn-info">Filter</button>  
-            <a href="{{ url('admin/recipes/index') }}" class="btn btn-info">Clear</a>
+            <button type="submit" class="btn btn-dark">Filter</button>  
+            <a href="{{ url('admin/recipes/index') }}" class="btn btn-outline-dark">Clear All Filters</a>
         </div>
     </form>
- 
+  
     <div class="row">
-        <div class="col"> <a href="{{ url('admin/recipes/create') }}" class="btn btn-primary">Create</a> </div>
+        <div class="col"> <a href="{{ url('admin/recipes/create') }}" class="btn btn-success">Create New Recipe</a> </div>
     </div>
- 
+    <br>
+    <br>
     <table class="table" >
         <tr>
             <th scope="col">ID</th>
@@ -44,7 +57,7 @@
             </td>
             <td>
             @if ($recipe->image)
-                <img style="max-height: 150px;" src="{{ asset($recipe->image) }}">
+                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img style="max-height: 150px;" src="{{ asset($recipe->image) }}"></a>
             @else
                 No image
             @endif
@@ -78,7 +91,7 @@
         </tr>
         @endforeach
     </table>
- 
+    
     <div class="row">
         <div class="col">
             {{ $recipes->links()}}
