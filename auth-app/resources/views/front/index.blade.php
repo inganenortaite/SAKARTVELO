@@ -5,31 +5,31 @@
 @section('content')
 
 <h1>All Recipes</h1>
- 
+
 <div>
     <div>
         <form action="{{ url('recipes') }}" method="get">
-
             <div class="col-12">        
                 <label class="form-label">Recipe's Category:</label>        
                 <select name="category_id" class="form-control"> 
-                <option value="" disabled selected hidden>Choose Category</option>           
-                @foreach($categories as $category)
-                <option @if($category->id == $category_id) selected @endif
-                value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
+                    <option value="" disabled selected hidden>Choose Category</option>           
+                    @foreach($categories as $category)
+                    <option @if($category->id == $category_id) selected 
+                    @endif
+                    value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>  
             </div>
 
             <div class="col-12">        
                 <label class="form-label">Recipe's Name:</label>        
                 <select name="name" class="form-control"> 
-                <option value="" disabled selected hidden>Choose Recipe</option>           
-                @foreach($recipes as $recipe)
-                <option @if($recipe->name == $name) selected 
-                @endif
-                value="{{ $recipe->name}}">{{ $recipe->name }}</option>
-                @endforeach
+                    <option value="" disabled selected hidden>Choose Recipe</option>           
+                    @foreach($recipes as $recipe)
+                    <option @if($recipe->name == $name) selected 
+                    @endif
+                    value="{{ $recipe->name}}">{{ $recipe->name }}</option>
+                    @endforeach
                 </select>
             </div>  
            
@@ -55,7 +55,7 @@
                             {{ $recipe->category->name }}
                         @endif
                     </h6>
-                    <a href="{{ url('recipe', ['id'=> $recipe->id]) }}">Make {{ $recipe->name }} Recipe</a>  
+                    <a class="link-success" href="{{ url('recipe', ['id'=> $recipe->id]) }}">Make {{ $recipe->name }} Recipe</a>  
                 </div>
             </div>
         </div>

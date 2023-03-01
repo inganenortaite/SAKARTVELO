@@ -13,7 +13,7 @@
     
 <div class="row">
     <div class="col">
-        <a href="{{ url('admin/categories/create') }}" class="btn btn-primary">Create</a>
+        <a target="_blank" href="{{ url('admin/categories/create') }}" class="btn btn-success">Create New Category</a>
     </div>
 </div>
 
@@ -29,13 +29,13 @@
     <tr>
         <th scope="row">{{ $category->id }}</th>
         <td>
-            <a href="{{ url('admin/categories/index', ['id' => $category->id]) }}">{{ $category->name }}</a>
+            <a href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->name }}</a>
         </td>
         <td>
             {{ $category->is_active }}
         </td>
         <td>
-            <a href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-info">Edit</a>
+            <a target="_blank" href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-warning">Edit</a>
         </td>
         <td>
             <form action="{{ route('admin.categories.delete', ['id' => $category->id]) }}" method="post">

@@ -42,7 +42,7 @@ class RecipeController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'description' => 'required|min:5|max:755',
+                'description' => 'required|min:5|max:2000',
                 'image' => [
                     'required',
                     File::types(['jpg', 'wav', 'png'])

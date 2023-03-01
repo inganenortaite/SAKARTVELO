@@ -7,12 +7,23 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
+        <div class="mb-3">
+            <x-input-label for="email" class="form-label" :value="__('Email address')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 

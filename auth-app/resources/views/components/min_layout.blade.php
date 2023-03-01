@@ -1,6 +1,7 @@
 <html>
 <head>
     @include('components.head')
+    @include('components.carousel')
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -33,7 +34,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         @yield('content')
     </div>

@@ -19,13 +19,13 @@
                         {{ $recipe->category->name }}</h6>
                     <div>
                         <li class="list-group-item">Ingredients:
-                            <ol class="list-group list-group-numbered">
+                            <ul class="list-style-image">
                             @if($recipe->ingredients)
                             @foreach($recipe->ingredients as $ingredient)
-                                <li class="list-group-item list-group-item-secondary">{{ $ingredient->name }} </li>
+                                <li>{{ $ingredient->name }} </li>
                             @endforeach
                             @endif
-                            </ol>
+                            </ul>
                         </li>
                     </div>
                 </div>

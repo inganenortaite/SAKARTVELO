@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col">
-        <a href="{{ url('admin/ingredients/create') }}" class="btn btn-primary">Create</a>
+        <a target="_blank" href="{{ url('admin/ingredients/create') }}" class="btn btn-success">Create New Ingredient</a>
     </div>
 </div>
 
@@ -31,7 +31,7 @@
             {{ $ingredient->is_active }}
         </td>
         <td>
-            <a href="{{ route('admin.ingredients.edit', ['id' => $ingredient->id]) }}" class="btn btn-info">Edit</a>
+            <a target="_blank" href="{{ route('admin.ingredients.edit', ['id' => $ingredient->id]) }}" class="btn btn-warning">Edit</a>
         </td>
         <td>
             <form action="{{ route('admin.ingredients.delete', ['id' => $ingredient->id]) }}" method="post">

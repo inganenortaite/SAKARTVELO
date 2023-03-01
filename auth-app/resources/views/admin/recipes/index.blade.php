@@ -33,7 +33,7 @@
     </form>
   
     <div class="row">
-        <div class="col"> <a href="{{ url('admin/recipes/create') }}" class="btn btn-success">Create New Recipe</a> </div>
+        <div class="col"> <a target="_blank" href="{{ url('admin/recipes/create') }}" class="btn btn-success">Create New Recipe</a> </div>
     </div>
     <br>
     <br>
@@ -53,11 +53,11 @@
         <tr>
             <th scope="row">{{ $recipe->id }}</th>
             <td class="list-group-flush">
-                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
+                <a target="_blank" href="{{ url('recipe', ['id'=> $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
             </td>
             <td>
             @if ($recipe->image)
-                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img style="max-height: 150px;" src="{{ asset($recipe->image) }}"></a>
+                <a target="_blank" href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img style="max-height: 150px;" src="{{ asset($recipe->image) }}"></a>
             @else
                 No image
             @endif
@@ -75,11 +75,11 @@
             @endif
             </td>
                 <td>{{ Str::limit($recipe->description, 350) }}  
-                <a href="{{  url('recipe', ['id'=> $recipe->id])  }}" class="text-reset">read more</a>  
+                <a target="_blank" href="{{  url('recipe', ['id'=> $recipe->id])  }}" class="text-reset">read more</a>  
             </td>
                 <td>{{ $recipe->is_active }}</td>
             <td>
-                <a href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-primary">Edit</a>
+                <a target="_blank" href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-warning">Edit</a>
             </td>
             <td>
                 <form action="{{ route('admin.recipe.delete', ['id' => $recipe->id]) }}" method="post">

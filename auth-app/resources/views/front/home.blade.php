@@ -2,6 +2,40 @@
  
 @section('content')
 
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row">   
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="/images/1_Logo.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Sakartvelo Food Company</h4>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="/images/Food.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Special title treatment</h4>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="/images/1_Logo.jpg">
+                    <div class="card-body">
+                        <h4 class="card-title">Special title treatment</h4>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <h1>The Newest Recipes</h1>
 
 <div class="row">
@@ -20,7 +54,7 @@
                         {{ $recipe->category->name }}
                     @endif
                 </h6>
-                <a href="{{ url('recipe', ['id'=> $recipe->id]) }}">Make {{ $recipe->name }} Recipe</a>  
+                <a class="link-success" href="{{ url('recipe', ['id'=> $recipe->id]) }}">Make {{ $recipe->name }} Recipe</a>  
             </div>
         </div>
     </div>
