@@ -45,6 +45,7 @@ class CategoryController extends Controller
     public function create(): View|RedirectResponse
     {
         $categories = Category::where('id', null)->get();
+
         return view('admin/categories/create', [
             'categories' => $categories
         ]);
@@ -79,6 +80,7 @@ class CategoryController extends Controller
             abort(404);
         }
         $category->delete();
+        
         return redirect('admin/categories/index')->with('success', 'Category removed successfully!');
     }
 }

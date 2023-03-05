@@ -24,6 +24,7 @@ class IngredientController extends Controller
             if ($ingredient === null) {
             abort(404);
         }
+
         return view('admin/ingredients/index', [
             'ingredient' => $ingredient
         ]);
@@ -39,6 +40,7 @@ class IngredientController extends Controller
         );
 
         Ingredient::create($request->all());
+
             return redirect('admin/ingredients/index')
             ->with('success', 'Ingredient created successfully!');
     }
@@ -46,6 +48,7 @@ class IngredientController extends Controller
     public function create(): View|RedirectResponse
     {
         $ingredients = Ingredient::where('id', null)->get();
+
         return view('admin/ingredients/create', [
             'ingredients' => $ingredients
         ]);
@@ -80,6 +83,7 @@ class IngredientController extends Controller
             abort(404);
         }
         $ingredient->delete();
+        
         return redirect('admin/ingredients/index')->with('success', 'Ingredient removed successfully!');
     }
 }

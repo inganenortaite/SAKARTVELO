@@ -117,6 +117,7 @@ class RecipeController extends Controller
             abort(404);
         }
         $recipe->delete();
+        
         return redirect('admin/recipes/index')->with('success', 'Recipe removed successfully!');
     }
 }
