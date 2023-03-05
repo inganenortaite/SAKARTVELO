@@ -62,17 +62,17 @@
                 No image
             @endif
             </td>
-            <td class="text-center">
+            <td class="text-center"><a href="{{ url('admin/categories/index') }}" class="list-group-item list-group-item-action">
                 @if($recipe->category)
                 {{ $recipe->category->name }}
                 @endif</a>
             </td>
-            <td class="text-center">
+            <td class="text-center"><a href="{{ url('admin/ingredients/index') }}" class="list-group-item list-group-item-action">
             @if($recipe->ingredients)
                 @foreach($recipe->ingredients as $ingredient)
                     {{ $ingredient->name }}<br>
                 @endforeach
-            @endif
+            @endif</a>
             </td>
             <td>{{ Str::limit($recipe->description, 350) }}  
                 <a target="_blank" href="{{  url('recipe', ['id'=> $recipe->id])  }}" class="text-reset">read more</a>  

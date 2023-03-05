@@ -44,10 +44,10 @@
                         No image
                     @endif
                     <h4 class="card-title text-center text-uppercase"><a href="{{ url('recipe', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a></h4>
-                    <h6 class="card-subtitle text-muted text-center">
+                    <h6 class="card-subtitle text-muted text-center"><a href="{{ url('admin/categories/index') }}" class="list-group-item list-group-item-action">
                         @if($recipe->category)
                             {{ $recipe->category->name }}
-                        @endif
+                        @endif</a>
                     </h6>
                     <a class="link-success" href="{{ url('recipe', ['id'=> $recipe->id]) }}">Try To Make {{ $recipe->name }}</a>  
                 </div>
