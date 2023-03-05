@@ -63,6 +63,7 @@ class CategoryController extends Controller
             );
  
             $category->fill($request->all());
+            $category->is_active=$request->post('is_active', false);
             $category->save();
  
             return redirect('admin/categories/index')->with('success', 'Category updated successfully!');

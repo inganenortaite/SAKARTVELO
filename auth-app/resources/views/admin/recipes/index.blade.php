@@ -38,7 +38,7 @@
     <br>
     <br>
     <table class="table" >
-        <tr>
+        <tr class="text-center">
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th>Image</th>
@@ -51,8 +51,8 @@
         </tr>
         @foreach($recipes as $recipe)
         <tr>
-            <th scope="row">{{ $recipe->id }}</th>
-            <td class="list-group-flush">
+            <th class="text-center" scope="row">{{ $recipe->id }}</th>
+            <td class="list-group-flush text-center">
                 <a target="_blank" href="{{ url('recipe', ['id'=> $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a>
             </td>
             <td>
@@ -62,26 +62,26 @@
                 No image
             @endif
             </td>
-            <td>
+            <td class="text-center">
                 @if($recipe->category)
                 {{ $recipe->category->name }}
-                @endif
+                @endif</a>
             </td>
-            <td>
+            <td class="text-center">
             @if($recipe->ingredients)
                 @foreach($recipe->ingredients as $ingredient)
-                    {{ $ingredient->name }} <br>
+                    {{ $ingredient->name }}<br>
                 @endforeach
             @endif
             </td>
-                <td>{{ Str::limit($recipe->description, 350) }}  
+            <td>{{ Str::limit($recipe->description, 350) }}  
                 <a target="_blank" href="{{  url('recipe', ['id'=> $recipe->id])  }}" class="text-reset">read more</a>  
             </td>
-                <td>{{ $recipe->is_active }}</td>
-            <td>
+            <td class="text-center">{{ $recipe->is_active }}</td>
+            <td class="text-center">
                 <a target="_blank" href="{{ route('admin.recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-warning">Edit</a>
             </td>
-            <td>
+            <td class="text-center">
                 <form action="{{ route('admin.recipe.delete', ['id' => $recipe->id]) }}" method="post">
                     @csrf
                     @method('DELETE')

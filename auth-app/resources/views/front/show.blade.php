@@ -3,14 +3,11 @@
 @extends('components.min_layout')
 
 @section('content')
-
 <div class="container">
     <div class="row">
-
         <div class="col text-center">
             <img class="img-fluid rounded" src="{{ asset($recipe->image) }}">
         </div>
-
         <div class="col">
             <div class="card h-100" >
                 <div class="card-body">

@@ -19,25 +19,25 @@
 
 <table class="table">
     <tr>
-        <th scope="col" width="100">ID</th>
+        <th class="text-center" scope="col" width="100">ID</th>
         <th scope="col">Category Name</th>
-        <th scope="col">Active</th>
-        <th scope="col" width="100">Edit</th>
-        <th scope="col" width="100">Delete</th>
+        <th class="text-center" scope="col">Active</th>
+        <th class="text-center" scope="col" width="100">Edit</th>
+        <th class="text-center" scope="col" width="100">Delete</th>
     </tr>
 @foreach($categories as $category)
     <tr>
-        <th scope="row">{{ $category->id }}</th>
+        <th class="text-center" scope="row">{{ $category->id }}</th>
         <td>
-            <a href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->name }}</a>
+            <a class="link-dark" href="{{ url('admin/categories', ['id' => $category->id]) }}">{{ $category->name }}</a>
         </td>
-        <td>
+        <td class="text-center">
             {{ $category->is_active }}
         </td>
-        <td>
+        <td class="text-center">
             <a target="_blank" href="{{ route('admin.categories.edit', ['id' => $category->id]) }}" class="btn btn-warning">Edit</a>
         </td>
-        <td>
+        <td class="text-center">
             <form action="{{ route('admin.categories.delete', ['id' => $category->id]) }}" method="post">
                 @csrf
                 @method('DELETE')

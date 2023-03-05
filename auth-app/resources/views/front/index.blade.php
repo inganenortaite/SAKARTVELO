@@ -9,8 +9,14 @@
 <div>
     <div>
         <form action="{{ url('recipes') }}" method="get">
+
+            <div class="col-12">    
+                <label class="form-label">Recipe's Name</label>
+                <input type="text" name="name" value="{{ $name }}" class="form-control" placeholder="Type Recipe Name">
+            </div>
+
             <div class="col-12">        
-                <label class="form-label">Recipe's Category:</label>        
+                <label class="form-label">Recipe's Category</label>        
                 <select name="category_id" class="form-control"> 
                     <option value="" disabled selected hidden>Choose Category</option>           
                     @foreach($categories as $category)
@@ -20,18 +26,6 @@
                     @endforeach
                 </select>  
             </div>
-
-            <div class="col-12">        
-                <label class="form-label">Recipe's Name:</label>        
-                <select name="name" class="form-control"> 
-                    <option value="" disabled selected hidden>Choose Recipe</option>           
-                    @foreach($recipes as $recipe)
-                    <option @if($recipe->name == $name) selected 
-                    @endif
-                    value="{{ $recipe->name}}">{{ $recipe->name }}</option>
-                    @endforeach
-                </select>
-            </div>  
            
             <div class="col-12 mt-2">        
                 <button type="submit" class="btn btn-dark">Filter</button>  
@@ -49,13 +43,13 @@
                     @else
                         No image
                     @endif
-                    <h5 class="card-title"><a href="{{ url('recipe', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a></h5>
-                    <h6 class="card-subtitle text-muted">
+                    <h4 class="card-title text-center text-uppercase"><a href="{{ url('recipe', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a></h4>
+                    <h6 class="card-subtitle text-muted text-center">
                         @if($recipe->category)
                             {{ $recipe->category->name }}
                         @endif
                     </h6>
-                    <a class="link-success" href="{{ url('recipe', ['id'=> $recipe->id]) }}">Make {{ $recipe->name }} Recipe</a>  
+                    <a class="link-success" href="{{ url('recipe', ['id'=> $recipe->id]) }}">Try To Make {{ $recipe->name }}</a>  
                 </div>
             </div>
         </div>

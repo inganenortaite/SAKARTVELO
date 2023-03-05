@@ -7,7 +7,7 @@
             position:relative;
             background-position: top;
             background-size: cover;
-            opacity: 0.8;
+            opacity: 0.9;
         }
     </style>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -19,13 +19,13 @@
         
         <div class="carousel-inner">
             <div class="carousel-item active" data-interval="2000">
-                <img src="{{ asset('images/Layout_Watermarked.jpg') }}" class="d-block w-100" alt="Layout">
+                <a href="{{ url('/') }}"><img src="{{ asset('images/Layout_Watermarked.jpg') }}" class="d-block w-100" alt="Layout"></a>
             </div>
             <div class="carousel-item" data-interval="1000">
-                <img src="{{ asset('images/Layout_1_Watermarked.jpg') }}" class="d-block w-100" alt="Layout_1">
+                <a href="{{ url('/') }}"><img src="{{ asset('images/Layout_1_Watermarked.jpg') }}" class="d-block w-100" alt="Layout_1"></a>
             </div>
             <div class="carousel-item" data-interval="500">
-                <img src="{{ asset('images/Layout_2_Watermarked.jpg') }}" class="d-block w-100" alt="Layout_2">
+                <a href="{{ url('/') }}"><img src="{{ asset('images/Layout_2_Watermarked.jpg') }}" class="d-block w-100" alt="Layout_2"></a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

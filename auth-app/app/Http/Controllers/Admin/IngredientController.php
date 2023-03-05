@@ -24,7 +24,7 @@ class IngredientController extends Controller
             if ($ingredient === null) {
             abort(404);
         }
-        return view('admin/ingredients/show', [
+        return view('admin/ingredients/index', [
             'ingredient' => $ingredient
         ]);
     }

@@ -15,25 +15,25 @@
 
 <table class="table">
     <tr>
-        <th scope="col" width="100">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Active</th>
-        <th scope="col" width="100">Edit</th>
-        <th scope="col" width="100">Delete</th>
+        <th class="text-center" scope="col" width="100">ID</th>
+        <th scope="col">Ingredient Name</th>
+        <th class="text-center" scope="col">Active</th>
+        <th class="text-center" scope="col" width="100">Edit</th>
+        <th class="text-center" scope="col" width="100">Delete</th>
     </tr>
 @foreach($ingredients as $ingredient)
     <tr>
-        <th scope="row">{{ $ingredient->id }}</th>
+        <th class="text-center" scope="row">{{ $ingredient->id }}</th>
         <td>
-            <a href="{{ url('admin/ingredients/index', ['id' => $ingredient->id]) }}">{{ $ingredient->name }}</a>
+            <a>{{ $ingredient->name }}</a>
         </td>
-        <td>
+        <td class="text-center">
             {{ $ingredient->is_active }}
         </td>
-        <td>
+        <td class="text-center">
             <a target="_blank" href="{{ route('admin.ingredients.edit', ['id' => $ingredient->id]) }}" class="btn btn-warning">Edit</a>
         </td>
-        <td>
+        <td class="text-center">
             <form action="{{ route('admin.ingredients.delete', ['id' => $ingredient->id]) }}" method="post">
                 @csrf
                 @method('DELETE')

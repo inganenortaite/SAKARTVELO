@@ -38,6 +38,7 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::post('admin/categories/create', [CategoryController::class, 'store']);
     Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
     Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('admin.categories.delete');
+    Route::get('admin/categories/{id}', [CategoryController::class, 'show']);
 
     Route::get('admin/ingredients/index', [IngredientController::class, 'index']);
     Route::get('admin/ingredients/create', [IngredientController::class, 'create']);
