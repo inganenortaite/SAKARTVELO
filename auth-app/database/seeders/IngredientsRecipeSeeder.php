@@ -17,20 +17,12 @@ class IngredientsRecipeSeeder extends Seeder
     {
         $ingredients_recipe = [
             [
-                'recipe_id' => 1,
-                'ingredient_id' => 1,
+                'recipe_id' => 38,
+                'ingredient_id' => 26,
             ],
             [
-                'recipe_id' => 1,
-                'ingredient_id' => 2,
-            ],
-            [
-                'recipe_id' => 2,
-                'ingredient_id' => 4,
-            ],
-            [
-                'recipe_id' => 3,
-                'ingredient_id' => 1,
+                'recipe_id' => 38,
+                'ingredient_id' => 27,
             ],
         ];
  

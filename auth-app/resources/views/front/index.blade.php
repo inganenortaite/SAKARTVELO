@@ -44,7 +44,7 @@
                         No image
                     @endif
                     <h4 class="card-title text-center text-uppercase"><a href="{{ url('recipe', ['id' => $recipe->id]) }}" class="list-group-item list-group-item-action">{{ $recipe->name }}</a></h4>
-                    <h6 class="card-subtitle text-muted text-center"><a href="{{ url('admin/categories/index') }}" class="list-group-item list-group-item-action">
+                    <h6 class="card-subtitle text-muted text-center"><a href="{{ url('admin/categories', ['id' => $recipe->category_id]) }}" class="list-group-item list-group-item-action">
                         @if($recipe->category)
                             {{ $recipe->category->name }}
                         @endif</a>

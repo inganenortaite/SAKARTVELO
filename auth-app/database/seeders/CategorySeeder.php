@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Dumpling',
+                'name' => 'Salad Recipes',
                 'is_active' => 1,
             ],
             [
@@ -25,35 +25,39 @@ class CategorySeeder extends Seeder
                 'is_active' => 0,
             ],
             [
-                'name' => 'Barbeque',
+                'name' => 'Main-Course Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Stew',
+                'name' => 'Side-Dish Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Soup',
+                'name' => 'Baked-Goods Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Chicken/Pan-fried',
+                'name' => 'Dessert Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Chicken/Cooked',
+                'name' => 'Breakfast Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Pork/Pan-fried',
+                'name' => 'Lunch Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Appetizer',
+                'name' => 'Dinner Recipes',
                 'is_active' => 1,
             ],
             [
-                'name' => 'Dessert',
+                'name' => 'Snack Recipes',
+                'is_active' => 1,
+            ],
+            [
+                'name' => 'Soup Recipes',
                 'is_active' => 1,
             ],
         ];

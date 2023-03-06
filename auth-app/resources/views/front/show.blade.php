@@ -13,7 +13,8 @@
                 <div class="card-body">
                     <h1 class="card-title">{{$recipe->name}}</h1>
                     <h6 class="card-subtitle mb-2 text-muted">
-                        {{ $recipe->category->name }}</h6>
+                        <a href="{{ url('admin/categories', ['id' => $recipe->category_id]) }}"></a>
+                    </h6>
                     <div>
                         <li class="list-group-item">Ingredients:
                             <ul class="list-style-image">
@@ -31,9 +32,10 @@
     </div>
 <br>
     <div class="row">
-    <div class="col">
-        <div class="card">
-            Description: {{$recipe->description}}</div>
+        <div class="col">
+            <div class="card">
+                Description: {{$recipe->description}}
+            </div>
         </div>
     </div>
 </div>

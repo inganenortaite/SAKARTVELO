@@ -57,13 +57,14 @@
             </td>
             <td>
             @if ($recipe->image)
-                <a target="_blank" href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img style="max-height: 150px;" src="{{ asset($recipe->image) }}"></a>
+                <a target="_blank" href="{{ url('recipe', ['id'=> $recipe->id]) }}"><img style="max-height: 200px;" src="{{ asset($recipe->image) }}"></a>
             @else
                 No image
             @endif
             </td>
-            <td class="text-center"><a href="{{ url('admin/categories/index') }}" class="list-group-item list-group-item-action">
+            <td class="text-center"><a href="{{ url('admin/categories', ['id' => $recipe->category_id]) }}" class="list-group-item list-group-item-action">
                 @if($recipe->category)
+                
                 {{ $recipe->category->name }}
                 @endif</a>
             </td>
@@ -74,7 +75,7 @@
                 @endforeach
             @endif</a>
             </td>
-            <td>{{ Str::limit($recipe->description, 350) }}  
+            <td>{{ Str::limit($recipe->description, 500) }}  
                 <a target="_blank" href="{{  url('recipe', ['id'=> $recipe->id])  }}" class="text-reset">read more</a>  
             </td>
             <td class="text-center">{{ $recipe->is_active }}</td>

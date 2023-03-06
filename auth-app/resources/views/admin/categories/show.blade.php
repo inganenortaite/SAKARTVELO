@@ -34,13 +34,13 @@
                 <div class="col">
                     <div class="card h-100" >
                         <div class="card-body">
-                            <h1 class="card-title">{{$recipe->name}}</h1>
-                            <h6 class="card-subtitle mb-2 text-muted">
+                            <h1 class="card-title text-center">{{$recipe->name}}</h1>
+                            <h6 class="card-subtitle mb-2 text-muted text-center">
                                 {{ $recipe->category->name }}</h6>
                             <div>
                                 <li class="list-group-item">Ingredients:
                                     <ul class="list-style-image">
-                                    @if($recipe->ingredients)
+                                    @if($recipe->ingredients) 
                                     @foreach($recipe->ingredients as $ingredient)
                                         <li>{{ $ingredient->name }} </li>
                                     @endforeach
